@@ -1,0 +1,31 @@
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.5.0/semantic.min.css">
+  <title>About Us</title>
+</head>
+
+<div class="form-group">
+<select class="form-control menor" id="sel1" aria-label=" select example" [(ngModel)]="filtros.selectFilter" (change)="filtroAutomatico(filtros.selectFilter)" >
+  <option class="menor" value="default"> Maior Relevância </option>
+  <option value="price_asc"> Menor Preço </option>
+  <option value="price_desc"> Maior Preço </option>
+</select>
+</div>
+<div *ngIf="itens" class="card-container">
+  <div *ngFor="let itens of itens" class="card estiloCard shadow" style="width: 18rem;">
+    <div style="width: 90px; height: 90px;">
+    <img class="card-img-top imagemCard " src="{{itens.thumbnail}}" alt="Card image cap">
+  </div>
+    <div class="card-body ">
+      <h5 class="card-title produtoNome">{{ itens.title }}</h5>
+      <p class="card-text textoProduto"> {{ formatPrice(itens.price) }} </p>
+      <a href="{{itens.permalink}}" target="_blank" class="btn btn-primary">Acessar site</a>
+    </div>
+    </div>
+  </div>
+
