@@ -1,0 +1,38 @@
+
+.bgcor {
+  background: rgb(5, 19, 68);
+  background: linear-gradient(80deg, rgba(5, 19, 68, 1) 0%, rgba(2, 16, 42, 1) 93%);
+
+}
+
+.navbar {
+  padding-top: 50px;
+  border-radius: 0;
+
+}
+.navbar-brand {
+  position: relative;
+  top: -60px;
+}
+
+a{
+  color: white;
+
+}
+.navlink a:hover{
+  transition: 0.5s;
+  background-color: aliceblue;
+  color: rgb(5, 19, 68);
+  border-radius: 5px;
+
+}
+
+
+.nav-item {
+  padding: 10px;
+
+}
+.inputo{
+ width: 600px;
+ height: 50px;
+  }
