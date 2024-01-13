@@ -1,2 +1,93 @@
-/* You can add global styles to this file, and also import other style files */
-@import "~bootstrap/dist/css/bootstrap.css"
+.estiloCard {
+    right: 0;
+    display: inline-block;
+    margin: 5px;
+    position: static;
+    width: 250px;
+    height: 400px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+   
+  
+  }
+
+  .estiloCard:hover {
+    z-index: 20;
+    display:flexbox;
+    transform: scale(1.1);
+    background: #cecece;
+    border-radius: 5;
+    transition: 0.2s;
+  }
+
+  .estiloCard:hover.imagemCard {
+   opacity: 0.5;
+  }
+ 
+  
+  .form-select {
+    position: relative;
+    z-index: 10;
+  
+  }
+  
+  .card-container {
+    display: grid;
+    justify-content: center; /* Adjust this based on your preference */
+    gap: 10px; /* Adjust this based on your preference */
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Adjust column width as needed */
+    padding: 10px;
+
+  }
+  
+  .shadow {
+    padding: 10px;
+    box-shadow: inset 0 -3em 3em rgba(0, 0, 0, 0.1),
+      0 0 0 2px rgb(190, 190, 190),
+      0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
+  
+  }
+  .produtoNome{
+    position: relative;
+    text-align:left;
+    font-size: 12pt;
+    top: 40px;
+
+  }
+  .textoProduto{
+    font-size: 14pt;
+    color: rgb(0, 118, 78);
+    position: absolute;
+    top: 300px;
+
+
+  }
+
+  .imagemCard {
+    position: relative;
+    padding-top: 3px;
+    margin-bottom: 15px;
+
+    max-width: 150px;
+    max-height: 150px;
+  
+  }
+  
+ 
+  .menor {
+    border-radius: 10px;
+    margin: 10px;
+    position: relative;
+    z-index: 11;
+  
+  
+  }
+  @media(max-width:780px){
+    .card-container {
+      margin:0;
+      display: block;
+      justify-content: center; /* Adjust this based on your preference */
+      padding: 10px;
+  
+    }
+  }

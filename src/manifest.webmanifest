@@ -1,6 +1,6 @@
 {
-  "name": "price-owl",
-  "short_name": "price-owl",
+  "name": "PriceOwl",
+  "short_name": "PriceOwl",
   "theme_color": "#1976d2",
   "background_color": "#fafafa",
   "display": "standalone",
