@@ -1,0 +1,6 @@
+<form class="d-flex formInput">
+  <input class="inputd form-control me-2" type="search" placeholder="O que você procura?" aria-label="Search"
+         (input)="onInputChanged($event)" (keyup.enter)="searchItems()">
+
+  <button class="button-none" (click)="searchItems()" type="button"><img class="search" width="30px" height="30px" src="../../../assets/images/search.png" alt=""></button>
+</form>
