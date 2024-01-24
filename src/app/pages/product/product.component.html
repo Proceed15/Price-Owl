@@ -1,0 +1,128 @@
+<div *ngIf="!this.isMobile">
+<div class="container">
+  
+  <div class="bestOfer" *ngIf="groupsD.length > 0">
+    <div id="boContent-1">
+    <img class="bestOferImage" src="{{groupsD[0].produtos[0].imagemProduto}}" onerror="this.src='../../../assets/images/imagenotfound.jpeg'" alt="">
+  </div>
+  <div id="boContent-2">
+    <div class="bestOferFavorite">
+      <label class="custom-button" [class.disabled]="!isAuthentic">
+        <button
+            class="button-none"          
+            (click)="favoriteProduct()" >
+        <img [src]="this.imgFavorite" alt="">
+      </button>
+      </label>
+    </div>
+   
+    
+    <img class="bestOferSupplier" src="{{groupsD[0].produtos[0].logoFornecedor}}" alt="">
+    <h2 class="bestOfferText">{{truncateWords(groupsD[0].produtos[0].descricaoProduto,8)}} - Melhor Oferta de {{groupsD[0].produtos[0].nomeFornecedor}}</h2>
+    <div class="star-rating">
+      <div *ngIf="groupsD[0].produtos[0].avaliacaoProduto !== null; else notAvailable">
+          <div [innerHTML]="calculeRating(groupsD[0].produtos[0].avaliacaoProduto)"></div><span class="star-text">({{groupsD[0].produtos[0].avaliacaoProduto}})</span>
+      </div>
+      <ng-template #notAvailable>
+          <span class="not-available-text">Avaliação não disponível</span>
+      </ng-template>
+  </div>
+  
+
+    <p id="bestPrice">{{ formatPrice(groupsD[0].produtos[0].precoProduto) }}</p>
+
+ 
+  </div>
+   
+
+  </div>
+
+
+
+ <ul class="products-list">
+  <li class="productTab">Produtos e Ofertas</li>
+  
+  <li *ngFor="let group of groupsD[0].produtos; let first = first let last = last" [ngClass]="{'bestOffer-item': first, 'betOffer-final': last}">
+    <a  class="productList" target="_blank">
+      <img class="img-product" src="{{group.imagemProduto}}" onerror="this.src='../../../assets/images/imagenotfound.jpeg'" alt="">
+    <p>{{ truncateWords(group.descricaoProduto, 6) }}</p>
+    <div *ngIf="groupsD[0].produtos[0].avaliacaoProduto !== null; else notAvailable">
+      <div [innerHTML]="calculeRating(groupsD[0].produtos[0].avaliacaoProduto)"></div><span class="star-text">({{groupsD[0].produtos[0].avaliacaoProduto}})</span>
+  </div>
+  <ng-template #notAvailable>
+      <span class="not-available-text">Avaliação não disponível</span>
+  </ng-template>
+  <div  *ngIf="group.precoProduto>0; else available">
+    <p>{{ formatPrice(group.precoProduto) }}</p>
+  </div>
+  <ng-template #available>
+    <span class="available-text">Fora de Estoque</span>
+
+  </ng-template>
+    <img src="{{group.logoFornecedor}}" class="supplier-icon" alt="">
+    <a class="btn-link" href="{{group.linkProduto}}" target="_blank" role="button">Ir à loja</a>
+  </a>
+  </li>
+
+</ul>
+</div>
+</div>
+
+
+
+
+
+<div *ngIf="this.isMobile">
+  <div class="container">
+      
+  <div class="card mb-3 bestOfer" style="max-width: 90%;"  *ngIf="groupsD.length > 0">
+    <div class="row g-0 ">
+      <div class="col-md-4">
+        <div class="bestOferFavorite">
+          <label class="custom-button" [class.disabled]="!isAuthentic">
+            <button
+                class="button-none"          
+                (click)="favoriteProduct()" >
+            <img [src]="this.imgFavorite" alt="">
+          </button>
+          </label>
+        </div>
+        <img src="{{groupsD[0].produtos[0].imagemProduto}}" style="max-width: 90%; max-height: 90%;" onerror="this.src='../../../assets/images/imagenotfound.jpeg'" class="img-fluid rounded-start">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title bestOfferText-mobile">{{truncateWords(groupsD[0].produtos[0].descricaoProduto,8)}} - {{groupsD[0].produtos[0].nomeFornecedor}}</h5>
+      <div class="star-rating-mobile">
+        <div *ngIf="groupsD[0].produtos[0].avaliacaoProduto !== null; else notAvailable">
+          <div [innerHTML]="calculeRating(groupsD[0].produtos[0].avaliacaoProduto)"></div><span class="star-text">({{groupsD[0].produtos[0].avaliacaoProduto}})</span>
+      </div>
+      <ng-template #notAvailable>
+          <span class="not-available-text">Avaliação não disponível</span>
+      </ng-template>
+      </div>
+            <p id="card-text" style="color: rgb(0, 118, 78);">{{ formatPrice(groupsD[0].produtos[0].precoProduto) }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+    
+
+  
+  <div class="list-group">
+    <a class="list-group-item list-group-item-action active productTab-mobile" aria-current="true">
+     Produtos e Ofertas 
+    </a>
+    
+    <a *ngFor="let group of groupsD[0].produtos; let first = first let last = last" [ngClass]="{'bestOffer-item-mobile': first, 'betOffer-final': last}"  class="productList-mobile list-group-item list-group-item-action">      
+      <img class="img-mobile" src="{{group.imagemProduto}}" onerror="this.src='../../../assets/images/imagenotfound.jpeg'" alt="">
+      <p  id="text-mobile">{{ truncateWords(group.descricaoProduto, 6) }}</p>
+      <p id="text-mobile">{{ formatPrice(group.precoProduto) }}</p>
+     <img src="{{group.logoFornecedor}}" style="max-width: 40px; max-height: 40px;" alt="">
+     <a class="btn-link-mobile" href="{{group.linkProduto}}" role="button">Ir à loja</a>
+    </a>
+
+  </div>
+
+
+</div>
