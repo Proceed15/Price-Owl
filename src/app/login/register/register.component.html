@@ -1,0 +1,60 @@
+<div class="regbutton float-right" (click)="openModal('custom-modal-2')">
+  <span class="regimg"></span> ENTRAR
+</div>
+<div class="regbutton float-right" (click)="openModal('custom-modal-1')">
+  <span class="regimg"></span> REGISTRAR
+</div>
+
+<jw-modal id="custom-modal-1">
+  <div class="container">
+    <div class="owl'"><img src="../../../assets//icons/icon-128x128.png" alt=""></div>
+    <div class="card-login">
+
+    <button type="button" class="btn btn-danger" data-bs-toggle="button" (click)="closeModal('custom-modal-1');">X</button>
+    
+    <h2>Registro</h2>
+
+ 
+      <form [formGroup]="newUserForm" (ngSubmit)="registerUser()">
+        <div class="form-group input-container">
+          <label for="us_nome">Nome:</label>
+          <input type="text" class="input-field" id="us_nome" formControlName="us_nome" />
+          <div *ngIf="newUserForm.get('us_nome')?.hasError('required') && newUserForm.get('us_nome')?.touched" class="error-message">
+            Nome é obrigatório.
+          </div>
+        </div>
+
+        <div class="form-group input-container">
+          <label for="us_email">E-mail:</label>
+          <input type="email" class="input-field" id="us_email" formControlName="us_email" />
+          <div *ngIf="newUserForm.get('us_email')?.hasError('required') && newUserForm.get('us_email')?.touched" class="error-message">
+            E-mail é obrigatório.
+          </div>
+          <div *ngIf="newUserForm.get('us_email')?.hasError('email') && newUserForm.get('us_email')?.touched" class="error-message">
+            E-mail inválido.
+          </div>
+        </div>
+
+        <div class="form-group input-container">
+          <label for="us_senha">Senha:</label>
+          <input type="password" class="input-field" id="us_senha" formControlName="us_senha" />
+          <div *ngIf="newUserForm.get('us_senha')?.hasError('required') && newUserForm.get('us_senha')?.touched" class="error-message">
+            Senha é obrigatória.
+          </div>
+        </div>
+
+        <button (click)="closeModal('custom-modal-1');" class="btnOwl" type="submit" [disabled]="!newUserForm.valid">Registrar</button>
+      </form>
+      <a class="reg" (click)="closeModal('custom-modal-1');" (click)="openModal('custom-modal-2');">Já tenho uma conta</a>
+    </div>
+   
+  </div>
+</jw-modal>
+
+
+<jw-modal id="custom-modal-2">
+  <app-login></app-login>>
+</jw-modal >
+
+
+
