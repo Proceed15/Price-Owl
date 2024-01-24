@@ -1,0 +1,82 @@
+<nav class="navbar navbar-expand-lg navbar-dark bgcor">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#"><img class="owl" src="../../../assets/icons/icon-96x96.png" srcset=""></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <img src="../../../assets/icons/icon-72x72.png">
+    </button>
+    <app-input-search></app-input-search>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item justify">
+
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Casa</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a  class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            Principais categorias
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" value="1" (click)="setCategory(0)" (click)="categoryRoute()">Placa de Vídeo</a></li>
+            <li><a class="dropdown-item" value="2" (click)="setCategory(1)" (click)="categoryRoute()">Smartphone</a></li>
+            <li><a class="dropdown-item" value="3" (click)="setCategory(2)" (click)="categoryRoute()">Carregador</a></li>
+            <li><a class="dropdown-item" value="4" (click)="setCategory(3)" (click)="categoryRoute()">PC</a></li>
+            <li><a class="dropdown-item" value="5" (click)="setCategory(4)" (click)="categoryRoute()">Notebook</a></li>
+            <li><a class="dropdown-item" value="6" (click)="setCategory(5)" (click)="categoryRoute()">Tablet</a></li>
+            <li><a class="dropdown-item" value="7" (click)="setCategory(6)" (click)="categoryRoute()">Console</a></li>
+            <li><a class="dropdown-item" value="8" (click)="setCategory(7)" (click)="categoryRoute()">Controle</a></li>
+            <li><a class="dropdown-item" value="9" (click)="setCategory(8)" (click)="categoryRoute()">Mouse</a></li>
+            <li><a class="dropdown-item" value="26" (click)="setCategory(10)" (click)="categoryRoute()">Fone</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" routerLink="/about-us">Sobre Nós</a>
+        </li>
+      </ul>
+      <div *ngIf="this.authStateService.isAuthenticated$ | async; else notAuthenticated">
+        <div>
+          <div *ngIf="!this.isMobile">
+          <div class="btn-group dropstart">
+            <button class="btn regbutton float-right dropdown-toggle" type="button" id="dropdownMenuClickable"
+              data-bs-toggle="dropdown" data-bs-auto-close="false" aria-expanded="false">
+              {{this.userName}}
+            </button>
+            <ul class="dropdown-menu " aria-labelledby="dropdownMenuClickable">
+              <li><a class="dropdown-item" [routerLink]="['favorites', this.userId]">Favoritos</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item btn-danger" (click)="onLogout()">Log Out</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div *ngIf="this.isMobile">
+          <div class="btn-group dropend">
+            <button class="btn regbutton-mobile dropdown-toggle" type="button" id="dropdownMenuClickable"
+              data-bs-toggle="dropdown" data-bs-auto-close="false" aria-expanded="false">
+              {{this.userName}}
+            </button>
+            <ul class="dropdown-menu " aria-labelledby="dropdownMenuClickable">
+              <li><a class="dropdown-item" [routerLink]="['user-info', this.userName]">Perfil de Usuário</a></li>
+              <li><a class="dropdown-item" [routerLink]="['favorites', this.userId]">Favoritos</a></li>
+              <li><a class="dropdown-item" href="#">Histórico</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item btn-danger" (click)="onLogout()">Log Out</a></li>
+            </ul>
+          </div>
+        </div>
+        </div>
+      </div>
+
+      <ng-template #notAuthenticated >
+        
+        <app-register></app-register>
+      
+      </ng-template>

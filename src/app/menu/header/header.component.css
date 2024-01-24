@@ -1,0 +1,55 @@
+
+.bgcor {
+  background: rgb(0,13,63);
+  background: linear-gradient(90deg, rgba(0,13,63,1) 0%, rgba(0,20,96,1) 50%, rgba(0,13,63,1) 100%);
+
+}
+.navbar{
+    height: 180px;
+}
+@media(max-width:991.2px){
+  .owl{
+      display: none;
+  }
+  .navbar{
+    min-height: 350px;
+    margin-bottom: 50px;
+    z-index: 10;
+}
+.reg{
+  margin-top: -10px;
+}
+}
+.regbutton{
+  right: 50px;
+  background-color: #014480;
+  margin-right: 5px;
+  text-decoration: none;
+  color: white;
+  border-radius: 5px;
+  padding: 8px;
+  font-weight: bold;
+  border: 1px solid rgb(5, 1, 80);
+
+}
+.regbutton:hover {
+  background-color: #82d7ff;
+  color: rgb(5, 1, 80)
+
+  }
+
+  .regbutton-mobile{
+    background-color: #014480;
+    text-decoration: none;
+    color: white;
+    border-radius: 5px;
+    padding: 8px;
+    font-weight: bold;
+    border: 1px solid rgb(5, 1, 80);
+  
+  }
+  .regbutton-mobile:hover {
+    background-color: #82d7ff;
+    color: rgb(5, 1, 80)
+  
+    }
