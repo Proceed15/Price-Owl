@@ -1,0 +1,23 @@
+<div *ngIf="category[idcategory]">
+  <h2 class="title">{{category[idcategory].categoria}}</h2>
+  <div class="card-container">
+    <div *ngFor="let group of category[idcategory].grupos" class="card estiloCard shadow" style="width: 18rem;">
+      <div style="width: 90px; height: 90px;">
+        <img class="card-img-top imagemCard " src="{{group.imagemProduto}}"
+          onerror="this.src='../../../assets/images/imagenotfound.jpeg'" alt="Card image cap">
+      </div>
+      <div class="card-body " routerLink="/product/{{ group.idgrupo }}">
+        <h5 class="card-title produtoNome">{{truncateWords(group.nomeProduto,10)}}</h5>
+        <div *ngIf="group.precoProduto>0; else available">
+          <p class="card-text textoProduto">{{formatPrice(group.precoProduto)}} </p>
+        </div>
+        <ng-template #available>
+          <span class="available-text">Fora de Estoque</span>
+
+        </ng-template>
+
+
+      </div>
+
+    </div>
+  </div>
