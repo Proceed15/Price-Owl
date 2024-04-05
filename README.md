@@ -1,8 +1,9 @@
 # PriceOwl (PT-BR)
 
-Trabalho de Conclusão de Curso Apresentado a Etec Fernando Prestes para Obtenção do título de Técnico em Desenvolvimento de Sistemas.
-Integrantes do Grupo de TCC:
-José Roberto Lisboa da Silva Filho (eu).
+Trabalho de Conclusão de Curso Apresentado a Etec Fernando Prestes para a obtenção do título de Técnico em Desenvolvimento de Sistemas.
+
+## Integrantes do Grupo de TCC:
+José Roberto Lisboa da Silva Filho.
 Kaique Alves Mesquita.
 Lucas Feitosa Almeida Rocha.
 Gustavo Germano Lemos Pereira.
