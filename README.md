@@ -1,4 +1,13 @@
-# PriceOwl
+# PriceOwl (PT-BR)
+
+Trabalho de Conclusão de Curso Apresentado a Etec Fernando Prestes para Obtenção do título de Técnico em Desenvolvimento de Sistemas.
+Integrantes do Grupo de TCC:
+José Roberto Lisboa da Silva Filho (eu).
+Kaique Alves Mesquita.
+Lucas Feitosa Almeida Rocha.
+Gustavo Germano Lemos Pereira.
+
+# Generation (EN-US)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.4.
 
